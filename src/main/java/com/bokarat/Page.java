@@ -46,19 +46,25 @@ public class Page {
     }
 
     public void getPageLinks() {
-        if (!this.getPageLinks){// if we already get links
+
+        if (this.getPageLinks){// if we already get links
             return;
         }
         Document doc = null;//initializing page doc
+
         if (!this.linkType.equals(LinkType.ITERNAL)) {// if not Internal link - not seacrhing for links on that page
+
             return;
         }
+
         try {
             doc = Jsoup.connect(this.url).get();// connecting to URL if ok - get doc in NO change response code and return
             this.responseCode = 200;
+
         } catch (IOException e) {
             System.out.println("Can not connect to URL :" + this.url);
             this.responseCode = 1000;
+
             return;
         }
         Elements links = doc.select("a[href]");// selecting all <a tag with href attribute; Elements - iterateble
@@ -141,7 +147,7 @@ public class Page {
     }
 
     public static void addToMainList(Page newPage) {// adding links to  all pages list
-        System.out.println("starting add too main list");
+       // System.out.println("starting add too main list");
         if (newPage.isLinksCheckedOnPage) {//if links on page already checked - do nothing
             return;
         }

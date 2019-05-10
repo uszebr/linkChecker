@@ -15,10 +15,10 @@ public class Execution {
 
     public static void main(String[] args) {
         Page page = new Page("http://bokarat.com/", 0);
+        System.out.println(page+" "+ page.getPageLinks);
         page.getPageLinks();
-        for (Page  pageIter: Page.pages){
-
-        }
+        System.out.println(page+" "+ page.getPageLinks);
+        Page.addToMainList(page);
 
 
        /* System.out.println(page);
@@ -26,13 +26,13 @@ public class Execution {
         System.out.println(Page.pages.size());
         Page.addToMainList(page);
         System.out.println(page);
-        System.out.println(page.isLinksCheckedOnPage);
+        System.out.println(page.isLinksCheckedOnPage);*/
 
         for (Page ipage : Page.pages
         ) {
             System.out.print(ipage.isLinksCheckedOnPage + " - links checked  ");System.out.println(ipage);
         }
-        System.out.println(Page.pages.size());*/
+        System.out.println(Page.pages.size());
 
     }
 }
